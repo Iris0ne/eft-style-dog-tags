@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+	<string id="st_eft_dogtag">
+		<text>Dog Tag</text>
+	</string>
+	<string id="st_eft_dogtag_descr">
+		<text>A battered identification tag taken from a dead stalker. It is common enough to sell cheaply, but the right black market contact may care more about proof than rubles.</text>
+	</string>
+</string_table>
