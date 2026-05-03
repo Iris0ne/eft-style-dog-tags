@@ -1,0 +1,25 @@
+; EFT-style Dog Tags
+; A single low-value proof-of-kill item for human NPC corpses.
+
+[eft_dogtag]:identity_immunities
+GroupControlSection = spawn_group
+discovery_dependency =
+$spawn = "devices\quest_items\dogtag"
+$prefetch = 16
+class = II_ATTCH
+cform = skeleton
+kind = i_misc
+visual = dynamics\devices\dev_pda\dev_pda.ogf
+description = st_eft_dogtag_descr
+inv_name = st_eft_dogtag
+inv_name_short = st_eft_dogtag
+inv_weight = 0.03
+icons_texture = ui\icons\ui_icon_eft_dogtags
+inv_grid_width = 1
+inv_grid_height = 1
+inv_grid_x = 0
+inv_grid_y = 0
+cost = 150
+can_trade = true
+quest_item = false
+tier = 1
