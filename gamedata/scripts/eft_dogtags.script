@@ -1,0 +1,71 @@
+-- Adds a single EFT-style dog tag item to human NPC corpses.
+-- Kept cheap on purpose: common proof-of-kill loot first, Black Market barter later.
+
+local dogtag_section = "eft_dogtag"
+local supported_communities = {
+	stalker = true,
+	bandit = true,
+	dolg = true,
+	freedom = true,
+	army = true,
+	army_npc = true,
+	killer = true,
+	ecolog = true,
+	csky = true,
+	monolith = true,
+	renegade = true,
+	greh = true,
+	greh_npc = true,
+	isg = true,
+	zombied = true
+}
+
+local rank_bonus = {
+	novice = 0,
+	trainee = 0,
+	experienced = 3,
+	professional = 5,
+	veteran = 8,
+	expert = 10,
+	master = 12,
+	legend = 15
+}
+
+local function get_spawn_chance(npc)
+	local rank = ranks and ranks.get_obj_rank_name and ranks.get_obj_rank_name(npc) or "novice"
+	return 60 + (rank_bonus[rank] or 0)
+end
+
+local function already_has_tag(npc)
+	local found = false
+	local function itr(_, item)
+		if item and item:section() == dogtag_section then
+			found = true
+		end
+	end
+
+	npc:iterate_inventory(itr, npc)
+	return found
+end
+
+function npc_on_death_callback(npc, who)
+	if not npc then
+		return
+	end
+
+	if not supported_communities[character_community(npc)] then
+		return
+	end
+
+	if already_has_tag(npc) then
+		return
+	end
+
+	if math.random(1, 100) <= get_spawn_chance(npc) then
+		alife_create_item(dogtag_section, npc)
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("npc_on_death_callback", npc_on_death_callback)
+end
