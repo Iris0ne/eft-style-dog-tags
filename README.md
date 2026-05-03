@@ -16,11 +16,12 @@ A small S.T.A.L.K.E.R. GAMMA add-on that adds a single EFT-style dog tag item to
 ## Install
 
 1. Download the repository as a ZIP from GitHub
-2. Copy the EFT-style Dog Tags folder into your MO2
-3. Open Mod Organizer 2
-4. Enable EFT-style Dog Tags
-5. Place it near the bottom of your load order, below GAMMA's core item and loot mods
-6. Launch the game through MO2
+2. Drag the EFT-style Dog Tags file into your MO2
+3. Copy the EFT-style Dog Tags folder into your MO2 mods folder
+4. Open Mod Organizer 2
+5. Enable EFT-style Dog Tags
+6. Place it near the bottom of your load order, below GAMMA's core item and loot mods
+7. Launch the game through MO2
 
 Recommended load order: below GAMMA's core item/loot mods
 
